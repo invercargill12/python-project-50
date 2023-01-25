@@ -1,5 +1,5 @@
-def plain_message(diff_tree):
-    result = ''
+def stylish_message(diff_tree):
+    result = '{\n'
     space = '  '
     for key, description in diff_tree.items():
         if description['info'] == 'deleted':
@@ -19,5 +19,5 @@ def plain_message(diff_tree):
         elif description['info'] == 'unchanged':
             value = description['value']
             result += f"{space*2} {key}: {value}\n"
-
+    result += '}'
     return result
