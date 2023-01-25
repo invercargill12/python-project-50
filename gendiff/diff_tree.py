@@ -1,6 +1,6 @@
-def generate_diff(file1, file2, format='stylish'):
+def generate_tree(file1, file2):
     diff_tree = {}
-    all_keys = sorted(set(file1.keys() | file2.keys()))
+    all_keys = sorted(file1.keys() | file2.keys())
     for key in all_keys:
         if key not in file2:
             description = {'info': 'deleted',       # '-'
