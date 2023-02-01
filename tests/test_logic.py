@@ -9,5 +9,5 @@ def test_stylish():
 
 
 def test_arguments_parser():
-    paths = arguments_parser(['tests/fixtures/file1.json', 'tests/fixtures/file2.json'])
-    assert paths == ('tests/fixtures/file1.json', 'tests/fixtures/file2.json')
+    paths = arguments_parser(['file1.json', 'file2.json'])
+    assert paths == ('file1.json', 'file2.json', None)

@@ -1,6 +1,12 @@
-from gendiff.data_reader import read_data
 from gendiff.diff_tree import generate_tree
 from gendiff.stylish import stylish_message
+import json
+
+
+def read_data(file):
+    if file.endswith('json'):
+        new_data = json.load(open(file))
+    return new_data
 
 
 def generate_diff(file1, file2, format='stylish'):
