@@ -32,6 +32,6 @@ def stylish_message(diff_tree):
         elif description['info'] == 'unchanged':
             pre_value = description['value']
             value = normalize_value(pre_value)
-            result += f"{space*2}{key}: {value}\n"
+            result += f"{space}  {key}: {value}\n"
     result += '}'
     return result
