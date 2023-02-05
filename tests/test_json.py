@@ -3,7 +3,7 @@ from gendiff.cli import arguments_parser
 
 
 def test_stylish():
-    expected = open('tests/fixtures/stylish.txt')
+    expected = open('tests/fixtures/result_stylish.txt')
     result = generate_diff('tests/fixtures/file1.json', 'tests/fixtures/file2.json')
     assert result == expected.read()
 
