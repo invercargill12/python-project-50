@@ -15,6 +15,10 @@ def generate_tree(file1, file2):
                            'old': file1[key],
                            'new': file2[key]}
 
+        elif isinstance(file1[key], dict) and isinstance(file2[key], dict):
+            description = {'info': 'nested',
+                           'children': generate_tree(file1[key], file2[key])}
+
         else:
             description = {'info': 'unchanged',      # blank
                            'value': file1[key]}
