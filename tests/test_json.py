@@ -1,13 +1,13 @@
 from gendiff.logic import generate_diff
-from gendiff.cli import arguments_parser
 
 
-def test_stylish():
+def test_json():
     expected = open('tests/fixtures/result_stylish.txt')
-    result = generate_diff('tests/fixtures/file1.json', 'tests/fixtures/file2.json')
+    result = generate_diff('tests/fixtures/file1.json', 'tests/fixtures/file2.json')  # noqa E501
     assert result == expected.read()
 
 
-def test_arguments_parser():
-    paths = arguments_parser(['file1.json', 'file2.json'])
-    assert paths == ('file1.json', 'file2.json', None)
+def test_json_nested():
+    expected = open('tests/fixtures/result_nested.txt')
+    result = generate_diff('tests/fixtures/file1_nested.json', 'tests/fixtures/file2_nested.json')  # noqa E501
+    assert result == expected.read()
