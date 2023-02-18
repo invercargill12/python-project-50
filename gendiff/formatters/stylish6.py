@@ -1,51 +1,50 @@
 import itertools
 
 
-def normalize_value(value):
-    if isinstance(value, bool):
-        return str(value).lower()
+def normalize(value):
+    if type(value) is bool:
+        if value is True:
+            return 'true'
+        return 'false'
+
     elif value is None:
         return 'null'
-    else:
-        return str(value)
+    
+    return value
 
 
 def stylish(diff_tree, replacer='    ', spaces_count=1):
+    
+    def inner(diff, depth=0):
+        space_size = depth + spaces_count  # 1
+        space = replacer * space_size      # '    '
+        current_space = replacer * depth   # ''
+        strings = ''
 
-    def inner(current_value, depth=0):
-        if not isinstance(current_value, dict):
-            return str(current_value)
+        for key, description in diff.items():
+            if description['info'] == 'nested':
+                children = description['children']
+                strings += f'\n{space * 2}{key}: {inner(children, depth + 1)}'
+                
+            elif description['info'] == 'unchanged':
+                value = description['value']
+                strings += f'\n{space}  {key}: {normalize(value)}'
+ 
+            elif description['info'] == 'changed':
+                value1 = description['old']
+                value2 = description['new']
+                strings += f'\n{space}- {key}: {normalize(value1)}'
+                strings += f'\n{space}+ {key}: {normalize(value2)}'
 
-        deep_indent_size = depth + spaces_count        # 0+1 = 1
-        deep_indent = replacer * deep_indent_size      # 4пробела * 1 = '    '
-        current_indent = replacer * depth              # 4пробела * 0 = ''
-        lines = []
-        for key, val in current_value.items():
-            if val['info'] == 'nested':
-                children = val['children']
-                value = normalize_value(children) 
-                lines.append(f'{deep_indent}{key}: {inner(value, deep_indent_size)}')
-            elif val['info'] == 'deleted':
-                pre_value = val['value']
-                value = normalize_value(pre_value)
-                lines.append(f'{deep_indent}- {key}: {value}')
-            elif val['info'] == 'added':
-                pre_value = val['value']
-                value = normalize_value(pre_value)
-                lines.append(f'{deep_indent}+ {key}: {value}')
-            elif val['info'] == 'changed':
-                pre_value1 = val['old']
-                pre_value2 = val['new']
-                value1 = normalize_value(pre_value1)
-                value2 = normalize_value(pre_value2)
-                lines.append(f'{deep_indent}- {key}: {value1}')
-                lines.append(f'{deep_indent}+ {key}: {value2}')
-            elif val['info'] == 'unchanged':
-                pre_value = val['value']
-                value = normalize_value(pre_value)
-                lines.append(f'{deep_indent}  {key}: {value}')
+            elif description['info'] == 'deleted':
+                value = description['value']
+                strings += f'\n{space}- {key}: {normalize(value)}'
 
-        result = itertools.chain("{", lines, [current_indent + "}"])
-        return '\n'.join(result)
+            elif description['info'] == 'added':
+                value = description['value']
+                strings += f'\n{space}+ {key}: {normalize(value)}'
+
+        result = itertools.chain("{", strings, [current_space + "}"])
+        return ''.join(result)
 
     return inner(diff_tree, 0)
