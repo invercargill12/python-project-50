@@ -9,16 +9,11 @@ MINUS = '  + ' # indent for added
 def normalize(value, depth):
     if isinstance(value, dict):
         return stylish(value, depth)
-    else:
-        if type(value) is bool:
-            if value is True:
-                return 'true'
-            return 'false'
-
-        elif value is None:
-            return 'null'
-        
-        return str(value)
+    elif isinstance(value, bool):
+        return str(value).lower()
+    elif value is None:
+        return 'null'
+    return value
 
 
 def stylish(diff_tree, depth=0):
@@ -26,19 +21,21 @@ def stylish(diff_tree, depth=0):
     lines = []
 
     for key, description in diff_tree.items():
-        if description['info'] == 'nested':
+        info = description.get('info')
+
+        if info == 'nested':
             value = description['value']
             lines.append(
                 f'\n{current_space}{SPACES}{key}: {normalize(value, depth+1)}'
             )
             
-        elif description['info'] == 'unchanged':
+        elif info == 'unchanged':
             value = description['value']
             lines.append(
                 f'\n{current_space}{SPACES}{key}: {normalize(value, depth+1)}'
             )
 
-        elif description['info'] == 'changed':
+        elif info == 'changed':
             value1 = description['old']
             value2 = description['new']
             lines.append(
@@ -48,13 +45,13 @@ def stylish(diff_tree, depth=0):
                 f'\n{current_space}{PLUS} {key}: {normalize(value2, depth+1)}'
             )
 
-        elif description['info'] == 'deleted':
+        elif info == 'deleted':
             value = description['value']
             lines.append(
                 f'\n{current_space}{MINUS}{key}: {normalize(value, depth+1)}'
             )
 
-        elif description['info'] == 'added':
+        elif info == 'added':
             value = description['value']
             lines.append(
                 f'\n{current_space}{PLUS}{key}: {normalize(value, depth+1)}'

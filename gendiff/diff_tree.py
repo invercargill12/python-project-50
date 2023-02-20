@@ -1,26 +1,43 @@
 def generate_tree(file1, file2):
     diff_tree = {}
-    all_keys = sorted(file1.keys() | file2.keys())
-    for key in all_keys:
-        if key not in file2:
-            description = {'info': 'deleted',       # '-'
-                           'value': file1[key]}
 
-        elif key not in file1:
-            description = {'info': 'added',         # '+'
-                           'value': file2[key]}
+    keys1 = set(file1)
+    keys2 = set(file2)
 
-        elif file1[key] != file2[key]:
-            description = {'info': 'changed',        # '+-'
-                           'old': file1[key],
-                           'new': file2[key]}
+    all_keys = keys1 | keys2
+    added = keys2 - keys1
+    deleted = keys1 - keys2
 
-        elif isinstance(file1[key], dict) and isinstance(file2[key], dict):
-            description = {'info': 'nested',
-                           'value': generate_tree(file1[key], file2[key])}
+    for key in sorted(all_keys):
+        if key in added:
+            diff_tree[key] = {
+                'info': 'added',
+                'value': file2.get(key)
+            }
+
+        elif key in deleted:
+            diff_tree[key] = {
+                'info': 'deleted',
+                'value': file1.get(key)
+            }
+
+        elif file1.get(key) == file2.get(key):
+            diff_tree[key] = {
+                'info': 'unchanged',
+                'value': file1.get(key)
+            }
+
+        elif isinstance(file1.get(key), dict) and isinstance(file2.get(key), dict):
+            diff_tree[key] = {
+                'info': 'nested',
+                'value': generate_tree(file1.get(key), file2.get(key))
+            }
 
         else:
-            description = {'info': 'unchanged',      # blank
-                           'value': file1[key]}
-        diff_tree[key] = description
+            diff_tree[key] = {
+                'info': 'changed',
+                'old': file1.get(key),
+                'new': file2.get(key)
+            }
+
     return diff_tree
