@@ -2,8 +2,8 @@ import itertools
 
 
 SPACES = '    '  # indent for unchanged
-PLUS = '  - ' # indent for deleted
-MINUS = '  + ' # indent for added
+PLUS = '  - '  # indent for deleted
+MINUS = '  + '  # indent for added
 
 
 def normalize(value, depth):
@@ -19,12 +19,13 @@ def normalize(value, depth):
 def stylish(diff_tree, depth=0):
     current_space = SPACES * depth
     lines = []
-
+#children = diff_tree.get('children')
+#if node['type'] == 'root'
     for key, description in diff_tree.items():
         info = description.get('info')
 
         if info == 'nested':
-            value = description['value']
+            value = description['children']
             lines.append(
                 f'\n{current_space}{SPACES}{key}: {normalize(value, depth+1)}'
             )
@@ -59,3 +60,4 @@ def stylish(diff_tree, depth=0):
 
     result = itertools.chain("{", lines, [current_space + "}"])
     return ''.join(result)
+
