@@ -9,3 +9,6 @@
 
 ### stylish-format yaml difference finder
 [![asciicast](https://asciinema.org/a/UNI2CDMi1QqdJfdp6KgX5SpTL.svg)](https://asciinema.org/a/UNI2CDMi1QqdJfdp6KgX5SpTL)
+
+### stylish-format nested difference finder
+[![asciicast](https://asciinema.org/a/1VwVoeIX51DLiefPN1BMEf330.svg)](https://asciinema.org/a/1VwVoeIX51DLiefPN1BMEf330)

@@ -1,5 +1,5 @@
 from gendiff.diff_tree import generate_tree
-from gendiff.formatters.stylish6 import stylish
+from gendiff.formatters.stylish import stylish
 from gendiff.file_parser import parser
 
 
