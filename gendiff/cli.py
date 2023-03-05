@@ -9,9 +9,7 @@ def arguments_parser(argv=None):
     parser.add_argument('second_file')
     parser.add_argument(
         '-f', '--format',
-        help='set format of output',
-        default='stylish',
-        choices=['stylish', 'plain', 'json']
+        help='set format of output: json, plain, stylish (default)'
     )
     args = parser.parse_args(argv)
     return args.first_file, args.second_file, args.format
