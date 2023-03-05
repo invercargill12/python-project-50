@@ -12,3 +12,6 @@
 
 ### stylish-format nested difference finder
 [![asciicast](https://asciinema.org/a/1VwVoeIX51DLiefPN1BMEf330.svg)](https://asciinema.org/a/1VwVoeIX51DLiefPN1BMEf330)
+
+### plain-format nested difference finder
+[![asciicast](https://asciinema.org/a/EIRzM4zQ0tBniu0ozZC1HiH36.svg)](https://asciinema.org/a/EIRzM4zQ0tBniu0ozZC1HiH36)
