@@ -1,3 +1,4 @@
+import json
 from gendiff.logic import generate_diff
 
 
@@ -7,16 +8,21 @@ def test_json():
     assert result == expected.read()
 
 
-def test_json_stylish():
+def test_json_in_stylish_format():
     expected = open('tests/fixtures/result_stylish.txt')
-    result = generate_diff('tests/fixtures/file1_nested.json', 'tests/fixtures/file2_nested.json')  # noqa E501
+    result = generate_diff('tests/fixtures/file1_nested.json', 'tests/fixtures/file2_nested.json', format='stylish')  # noqa E501
     assert result == expected.read()
 
 
-def test_json_plain():
+def test_json_in_plain_format():
     expected = open('tests/fixtures/result_plain.txt')
     result = generate_diff('tests/fixtures/file1_nested.json', 'tests/fixtures/file2_nested.json', format='plain')  # noqa E501
     assert result == expected.read()
+
+
+def test_json_in_json_format():
+    result = generate_diff('tests/fixtures/file1_nested.json', 'tests/fixtures/file2_nested.json', format='json')  # noqa E501
+    assert json.loads(result)
 
 
 def test_yaml():
@@ -25,13 +31,18 @@ def test_yaml():
     assert result == expected.read()
 
 
-def test_yaml_stylish():
+def test_yaml_in_stylish_format():
     expected = open('tests/fixtures/result_stylish.txt')
-    result = generate_diff('tests/fixtures/file1_nested.yml', 'tests/fixtures/file2_nested.yml')  # noqa E501
+    result = generate_diff('tests/fixtures/file1_nested.yml', 'tests/fixtures/file2_nested.yml', format='stylish')  # noqa E501
     assert result == expected.read()
 
 
-def test_yaml_plain():
+def test_yaml_in_plain_format():
     expected = open('tests/fixtures/result_plain.txt')
     result = generate_diff('tests/fixtures/file1_nested.yml', 'tests/fixtures/file2_nested.yml', format='plain')  # noqa E501
     assert result == expected.read()
+
+
+def test_yaml_in_json_format():
+    result = generate_diff('tests/fixtures/file1_nested.yml', 'tests/fixtures/file2_nested.yml', format='json')  # noqa E501
+    assert json.loads(result)
