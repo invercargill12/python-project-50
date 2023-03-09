@@ -5,6 +5,8 @@ def normalize(value):
         return str(value).lower()
     elif value is None:
         return 'null'
+    elif value is int:
+        return value
     return f"'{str(value)}'"
 
 
