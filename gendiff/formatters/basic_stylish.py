@@ -4,7 +4,7 @@ def normalize_value(value):
     elif value is None:
         return 'null'
     else:
-        return str(value)
+        return value
 
 
 def stylish_message(diff_tree):
