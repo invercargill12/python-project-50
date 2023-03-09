@@ -15,3 +15,6 @@
 
 ### plain-format nested difference finder
 [![asciicast](https://asciinema.org/a/EIRzM4zQ0tBniu0ozZC1HiH36.svg)](https://asciinema.org/a/EIRzM4zQ0tBniu0ozZC1HiH36)
+
+### JSON-format nested difference finder
+[![asciicast](https://asciinema.org/a/i1StvcsnQkVpJYIudXVDtTtyI.svg)](https://asciinema.org/a/i1StvcsnQkVpJYIudXVDtTtyI)
