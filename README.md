@@ -36,17 +36,14 @@ optional arguments:
                         set format of output: json, plain, stylish (default)
 ```
 
-### stylish-format json difference finder
-[![asciicast](https://asciinema.org/a/H14RS5OVq0gy871ESOJUvE8pC.svg)](https://asciinema.org/a/H14RS5OVq0gy871ESOJUvE8pC)
+### Basic comparison
+<script async id="asciicast-CFH7JUHaUnuV88x3FopH7vKhB" src="https://asciinema.org/a/CFH7JUHaUnuV88x3FopH7vKhB.js"></script>
 
-### stylish-format yaml difference finder
-[![asciicast](https://asciinema.org/a/UNI2CDMi1QqdJfdp6KgX5SpTL.svg)](https://asciinema.org/a/UNI2CDMi1QqdJfdp6KgX5SpTL)
+### Comparison in stylish format
+<script async id="asciicast-y2J618ZkMJNs034fCjv8y5cDx" src="https://asciinema.org/a/y2J618ZkMJNs034fCjv8y5cDx.js"></script>
 
-### stylish-format nested difference finder
-[![asciicast](https://asciinema.org/a/1VwVoeIX51DLiefPN1BMEf330.svg)](https://asciinema.org/a/1VwVoeIX51DLiefPN1BMEf330)
+### Comparison in plain format
+<script async id="asciicast-xEqHT2w5a99gOcUY1yMikRSbw" src="https://asciinema.org/a/xEqHT2w5a99gOcUY1yMikRSbw.js"></script>
 
-### plain-format nested difference finder
-[![asciicast](https://asciinema.org/a/EIRzM4zQ0tBniu0ozZC1HiH36.svg)](https://asciinema.org/a/EIRzM4zQ0tBniu0ozZC1HiH36)
-
-### JSON-format nested difference finder
-[![asciicast](https://asciinema.org/a/i1StvcsnQkVpJYIudXVDtTtyI.svg)](https://asciinema.org/a/i1StvcsnQkVpJYIudXVDtTtyI)
+### Comparison in json format
+<script async id="asciicast-O4A78wTUO3PXuXihrJrGt287O" src="https://asciinema.org/a/O4A78wTUO3PXuXihrJrGt287O.js"></script>
