@@ -37,13 +37,13 @@ optional arguments:
 ```
 
 ### Basic comparison
-<script async id="asciicast-CFH7JUHaUnuV88x3FopH7vKhB" src="https://asciinema.org/a/CFH7JUHaUnuV88x3FopH7vKhB.js"></script>
+[![asciicast](https://asciinema.org/a/CFH7JUHaUnuV88x3FopH7vKhB.svg)](https://asciinema.org/a/CFH7JUHaUnuV88x3FopH7vKhB)
 
 ### Comparison in stylish format
-<script async id="asciicast-y2J618ZkMJNs034fCjv8y5cDx" src="https://asciinema.org/a/y2J618ZkMJNs034fCjv8y5cDx.js"></script>
+[![asciicast](https://asciinema.org/a/y2J618ZkMJNs034fCjv8y5cDx.svg)](https://asciinema.org/a/y2J618ZkMJNs034fCjv8y5cDx)
 
 ### Comparison in plain format
-<script async id="asciicast-xEqHT2w5a99gOcUY1yMikRSbw" src="https://asciinema.org/a/xEqHT2w5a99gOcUY1yMikRSbw.js"></script>
+[![asciicast](https://asciinema.org/a/xEqHT2w5a99gOcUY1yMikRSbw.svg)](https://asciinema.org/a/xEqHT2w5a99gOcUY1yMikRSbw)
 
 ### Comparison in json format
-<script async id="asciicast-O4A78wTUO3PXuXihrJrGt287O" src="https://asciinema.org/a/O4A78wTUO3PXuXihrJrGt287O.js"></script>
+[![asciicast](https://asciinema.org/a/O4A78wTUO3PXuXihrJrGt287O.svg)](https://asciinema.org/a/O4A78wTUO3PXuXihrJrGt287O)
