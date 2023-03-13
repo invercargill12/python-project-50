@@ -18,11 +18,11 @@ git clone git@github.com:invercargill12/python-project-50.git
 ```
 
 ### Makefile
-#### Makefile helps you generate packages for your virtual environment
+Makefile helps you generate packages for your virtual environment.
 ```make install``` install poetry packages. \
 ```make build``` build poetry packages. \
 ```make package-install``` install built package to start using simple commands. \
-```make publish``` publish the project to PyPI after making a build. \
+```make publish``` publish the project to PyPI after making a build.
 
 ## Help
 ```bash
