@@ -5,18 +5,24 @@
 
 # Difference Generator – gendiff
 
-The package contains the program that prints the difference between two files (JSON or YAML) in following formats: stylish, plain, json.
+Program that prints the difference between two files (JSON or YAML) in following formats: stylish, plain, json.
 
 ### Requirements:
 * python = "^3.8"
 * poetry = "^1.3"
 
 ### Installation:
+Clone this repository via command:
 ```bash
 git clone git@github.com:invercargill12/python-project-50.git
-cd python-project-50
-make install
 ```
+
+### Makefile
+Makefile helps you generate packages for your virtual environment
+```make install``` install poetry packages
+```make build``` build poetry packages
+```make package-install``` install built package to start using simple commands
+```make publish``` publish the project to PyPI after making a build
 
 ## Help
 ```bash
