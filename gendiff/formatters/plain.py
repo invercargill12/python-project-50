@@ -10,7 +10,7 @@ def normalize(value):
     return f"'{str(value)}'"
 
 
-def plain(diff_tree, path=''):
+def build_plain(diff_tree, path=''):
     lines = []
 
     for key, description in diff_tree.items():
@@ -32,6 +32,6 @@ def plain(diff_tree, path=''):
                 f"Property '{path + key}' was updated. From {value1} to {value2}"  # noqa E501
             )
         elif isinstance(value, dict):
-            lines.append(plain(value, path + key + '.'))
+            lines.append(build_plain(value, path + key + '.'))
 
     return '\n'.join(lines)

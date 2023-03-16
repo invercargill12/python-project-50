@@ -1,13 +1,13 @@
-from gendiff.formatters.stylish import stylish
-from gendiff.formatters.plain import plain
-from gendiff.formatters.json import json_converter
+from gendiff.formatters.stylish import build_stylish
+from gendiff.formatters.plain import build_plain
+from gendiff.formatters.json import build_json
 
 
 def choose_formatter(diff_tree, formatter):
     if formatter == 'stylish':
-        return stylish(diff_tree)
+        return build_stylish(diff_tree)
     elif formatter == 'plain':
-        return plain(diff_tree)
+        return build_plain(diff_tree)
     elif formatter == 'json':
-        return json_converter(diff_tree)
+        return build_json(diff_tree)
     raise Exception('Wrong format, available formats: stylish, plain, json')

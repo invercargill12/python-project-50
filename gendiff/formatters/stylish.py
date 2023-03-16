@@ -8,7 +8,7 @@ MINUS = '  - '  # indent for added
 
 def normalize(value, depth):
     if isinstance(value, dict):
-        return stylish(value, depth)
+        return build_stylish(value, depth)
     elif isinstance(value, bool):
         return str(value).lower()
     elif value is None:
@@ -16,7 +16,7 @@ def normalize(value, depth):
     return value
 
 
-def stylish(diff_tree, depth=0):  # noqa C901
+def build_stylish(diff_tree, depth=0):  # noqa C901
     current_space = SPACES * depth
     lines = []
 

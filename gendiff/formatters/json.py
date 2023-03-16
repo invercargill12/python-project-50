@@ -1,5 +1,5 @@
 import json
 
 
-def json_converter(diff_tree):
+def build_json(diff_tree):
     return json.dumps(diff_tree, indent=4)
