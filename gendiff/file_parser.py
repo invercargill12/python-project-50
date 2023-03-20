@@ -2,11 +2,13 @@ import json
 import yaml
 
 
-def parse(file):
-    if file.endswith('json'):
-        new_data = json.load(open(file))
-        return new_data
-    elif file.endswith('yml') or file.endswith('yaml'):
-        new_data = yaml.safe_load(open(file))
-        return new_data
+def open_file(path):
+    return parse(open(path), path.split('.')[-1])
+
+
+def parse(file, extension):
+    if extension == 'json':
+        return json.load(file)
+    elif extension in ('yml', 'yaml'):
+        return yaml.safe_load(file)
     raise Exception(f'File {file} has wrong format!')
